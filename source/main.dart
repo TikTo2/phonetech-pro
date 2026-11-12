@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-
+import 'phone_data.dart';
 void main() {
   runApp(const PhoneTechApp());
 }
