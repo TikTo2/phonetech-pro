@@ -1,0 +1,16 @@
+List<PhoneModel> searchPhones(String query) {
+  final q = query.trim().toLowerCase();
+
+  if (q.isEmpty) {
+    return phoneDatabase;
+  }
+
+  return phoneDatabase.where((phone) {
+    return phone.name.toLowerCase().contains(q) ||
+        phone.brand.toLowerCase().contains(q) ||
+        phone.modelNumber.toLowerCase().contains(q) ||
+        phone.commonFaults.any(
+          (fault) => fault.toLowerCase().contains(q),
+        );
+  }).toList();
+}
